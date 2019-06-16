@@ -8,11 +8,14 @@ import { PeliculasService } from '../../providers/peliculas.service';
 })
 export class HomeComponent implements OnInit {
 
+  peliculas:any[]=[];
+
   constructor(_ps:PeliculasService) {  
 
-    _ps.getNewReleases().subscribe(resp=>{
+    _ps.getNewReleases().subscribe((resp:any)=>{
 
-      console.log(resp)
+       this.peliculas= resp
+      console.log(this.peliculas);
 
     })
 

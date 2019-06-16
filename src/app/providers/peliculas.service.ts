@@ -15,13 +15,22 @@ export class PeliculasService {
     
   }
 
+  
+
   getNewReleases(){
 
-    let url = `${this.urlMovie}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`
+    let url = `${this.urlMovie}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`
 
-    return this.http.jsonp(url, "JSONP_CALLBACK")
-    
+    return this.http.get(url).pipe(map((resp:any)=>{
+
+      return resp.results
+
+    }))
+    //jsonp(url, "JSONP_CALLBACK") &callback=JSONP_CALLBACK
   }
+
+  
+
 
 
 
