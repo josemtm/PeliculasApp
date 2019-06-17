@@ -1,8 +1,17 @@
 <div class="row">
     <div class="col">
 
-        <input type="text" class="form-control" (keyup)="buscar(termino.value
-    )" #termino>
+        <input type="text" class="form-control" (keyup)="buscar(termino.value)" #termino>
 
     </div>
 </div>
+
+<div class="card-columns animated fadeIn slow">
+    <div (click)="verPelicula(item.id)" class="card" *ngFor="let item of peliculas">
+        <img src="http://image.tmdb.org/t/p/w300{{item.poster_path}}" class="card-img-top" alt="img-pelicula">
+        <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.overview}}</p>
+            <p class="card-text"><small class="text-muted">{{item.release_date}}</small></p>
+        </div>
+    </div>

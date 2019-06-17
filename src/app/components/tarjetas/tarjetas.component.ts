@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-tarjetas',
@@ -11,9 +12,20 @@ export class TarjetasComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  verPelicula(peliculaId){
+
+  let artistaId="peliculaId"
+
+  console.log(peliculaId)
+  
+  this.router.navigate(['/pelicula', peliculaId])
+  
+
   }
 
 }

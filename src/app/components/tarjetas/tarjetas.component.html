@@ -1,5 +1,5 @@
-<div class="card-columns">
-    <div class="card" *ngFor="let item of items">
+<div class="card-columns animated fadeIn slow">
+    <div (click)="verPelicula(item.id)" class="card" *ngFor="let item of items">
         <img src="http://image.tmdb.org/t/p/w300{{item.poster_path}}" class="card-img-top" alt="img-pelicula">
         <div class="card-body">
             <h5 class="card-title">{{item.title}}</h5>

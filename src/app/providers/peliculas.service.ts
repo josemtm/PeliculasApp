@@ -15,7 +15,14 @@ export class PeliculasService {
     
   }
 
-  
+  getSearch(termino){
+    let url = `${this.urlMovie}/search/movie?api_key=${this.apikey}&query=${termino}`
+   
+    return this.http.get(url).pipe(map((resp:any)=>{
+      return resp.results;
+    }))
+
+  }  
 
   getNewReleases(){
 
@@ -30,7 +37,13 @@ export class PeliculasService {
   }
 
   
+ getMovie(id){
 
+  let url = `${this.urlMovie}/movie/${id}?api_key=${this.apikey}&language=es`
+
+  return this.http.get(url)
+
+ }
 
 
 

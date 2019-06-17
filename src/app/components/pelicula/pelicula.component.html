@@ -1,3 +1,13 @@
-<p>
-  pelicula works!
-</p>
+<div class="row">
+    <div class="col-3">
+        <button routerLink="home" class="btn btn-danger">Regresar</button>
+    </div>
+    <div class="col-4">
+        <img class="img-fluid" src="http://image.tmdb.org/t/p/w300{{pelicula.poster_path}}" alt="imagen-pelicula">
+    </div>
+    <div class="col-5">
+        <h1>{{pelicula.title}}</h1>
+        <p>{{pelicula.overview}}</p>
+        <p>Promedio de critica: {{pelicula.vote_average}}</p>
+    </div>
+</div>
