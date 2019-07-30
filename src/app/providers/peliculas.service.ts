@@ -14,9 +14,10 @@ export class PeliculasService {
 
     
   }
-
+  
+  //Busqueda de lista de peliculas por termino
   getSearch(termino){
-    let url = `${this.urlMovie}/search/movie?api_key=${this.apikey}&query=${termino}`
+    let url = `${this.urlMovie}/search/movie?api_key=${this.apikey}&query=${termino}&language=es`
    
     return this.http.get(url).pipe(map((resp:any)=>{
       return resp.results;
@@ -24,6 +25,7 @@ export class PeliculasService {
 
   }  
 
+  //funcion para llamar a listado de peliculas
   getNewReleases(){
 
     let url = `${this.urlMovie}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es`
@@ -33,10 +35,10 @@ export class PeliculasService {
       return resp.results
 
     }))
-    //jsonp(url, "JSONP_CALLBACK") &callback=JSONP_CALLBACK
+    
   }
 
-  
+//Funcion para obtener pelicula individual
  getMovie(id){
 
   let url = `${this.urlMovie}/movie/${id}?api_key=${this.apikey}&language=es`
@@ -50,4 +52,3 @@ export class PeliculasService {
 
 }
 
-//&callback=JSONP_CALLBACK
